@@ -1,0 +1,137 @@
+/* ===========================
+   BOTÓN FLOTANTE SUBIR NOTICIA
+=========================== */
+.boton-subir-noticia {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #002B5B;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.boton-subir-noticia::before {
+  content: "+";
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+.boton-subir-noticia:hover {
+  background-color: #C00000;
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(192, 0, 0, 0.4);
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .boton-subir-noticia {
+    right: 15px;
+    bottom: 15px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ===========================
+   ZONA DE NOTICIAS
+=========================== */
+.zona-noticias {
+  padding: 50px 20px;
+}
+
+.zona-noticias h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #002B5B;
+  text-align: center;
+}
+
+/* ===========================
+   TARJETAS DE NOTICIAS (tipo Bootstrap)
+=========================== */
+.card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #002B5B;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 10px;
+}
+
+.card .text-muted {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+/* ===========================
+   BOTONES DE ADMIN
+=========================== */
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 6px 12px;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #bd2130;
+}

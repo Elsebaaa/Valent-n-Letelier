@@ -1,0 +1,50 @@
+
+/* Directivos */
+.lista-directivos {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .item-directivo {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .item-directivo:last-child {
+    border-bottom: none;
+  }
+  
+  .item-directivo h3 {
+    margin: 0;
+    color: #002B5B;
+  }
+  
+  .item-directivo p {
+    margin: 4px 0;
+    color: #444;
+    font-size: 14px;
+  }
+  
+  .boton-subir-directivo {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #002B5B;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: 0.3s;
+  }
+  
+  .boton-subir-directivo:hover {
+    background-color: #C00000;
+    transform: scale(1.05);
+  }

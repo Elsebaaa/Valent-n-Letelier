@@ -1,0 +1,23 @@
+[
+  {
+    "fecha": "22 de abril de 2025",
+    "titulo": "Prueba 1",
+    "descripcion": "Prueba de la base de datos ",
+    "imagen": "/img/1745333890370.jpeg",
+    "link": "#"
+  },
+  {
+    "fecha": "22 de abril de 2025",
+    "titulo": "dddddddd",
+    "descripcion": "libreOffice",
+    "imagen": "/img/1745329673579.png",
+    "link": "#"
+  },
+  {
+    "fecha": "22 abril, 2025",
+    "titulo": "Nueva biblioteca educativa",
+    "descripcion": "Se inauguró una nueva biblioteca en el Liceo Nacional.",
+    "imagen": "/src/public/img/jardin-de-infancia.png",
+    "link": "#"
+  }
+]

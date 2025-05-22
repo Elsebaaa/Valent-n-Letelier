@@ -1,0 +1,70 @@
+<% var script = 'misionyvision'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión y Visión</title>
+  <%- include('partials/head') %>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/navigation') %>
+
+  <main class="container my-5">
+    <h1 class="text-center mb-5">Misión y Visión</h1>
+
+    <div class="row g-4">
+      <!-- Misión -->
+      <div class="col-md-6 fade-in">
+        <div class="card border-primary shadow h-100">
+          <div class="card-body">
+            <h3 class="card-title text-primary">🎯 Misión</h3>
+            <p class="card-text fs-5"><%= mision %></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visión -->
+      <div class="col-md-6 fade-in">
+        <div class="card border-success shadow h-100">
+          <div class="card-body">
+            <h3 class="card-title text-success">🌟 Visión</h3>
+            <p class="card-text fs-5"><%= vision %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if (usuario && usuario.rol === 'admin') { %>
+    <form action="/admin/guardar-misionvision" method="POST" class="mt-5">
+      <div class="mb-3">
+        <label for="mision" class="form-label">Editar Misión:</label>
+        <textarea id="mision" name="mision" class="form-control" rows="5"><%= mision %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="vision" class="form-label">Editar Visión:</label>
+        <textarea id="vision" name="vision" class="form-control" rows="5"><%= vision %></textarea>
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      </div>
+    </form>
+    <% } %>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

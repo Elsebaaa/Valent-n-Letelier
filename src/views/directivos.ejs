@@ -1,0 +1,44 @@
+<% var script = 'directivos'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Directivos - DEM Ovalle</title>
+  <%- include('partials/head') %>
+</head>
+<body>
+
+  <%- include('partials/navigation') %>
+
+  <section class="lista-directivos">
+    <% if (directivos.length > 0) { %>
+      <% directivos.forEach(d => { %>
+        <div class="item-directivo">
+          <h3><%= d.nombre %> - <small><%= d.cargo %></small></h3>
+          <p><strong>RUT:</strong> <%= d.rut %></p>
+          <p><strong>Correo:</strong> <%= d.correo %></p>
+          <p><strong>Teléfono:</strong> <%= d.telefono %></p>
+    
+          <% if (sesion && sesion.rol === 'admin') { %>
+            <div style="margin-top:10px;">
+              <a href="/admin/editar-directivo/<%= d.id %>" class="btn btn-warning btn-sm me-2">Editar</a>
+              <form action="/admin/eliminar-directivo/<%= d.id %>" method="POST" class="form-eliminar-directivo" data-nombre="<%= d.nombre %>">
+                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+              </form>
+            </div>
+          <% } %>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p style="text-align:center;">No hay directivos registrados.</p>
+    <% } %>
+  </section>
+
+  <% if (sesion && sesion.rol === 'admin') { %>
+    <a href="/admin/subir-directivo" class="boton-subir-directivo">+ Agregar directivo</a>
+  <% } %>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

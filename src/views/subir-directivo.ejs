@@ -1,0 +1,52 @@
+<% var script = 'subir-directivo'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Directivo</title>
+  <%- include('partials/head') %>
+</head>
+<body>
+
+  <div class="formulario-directivo">
+    <h2>Agregar Directivo</h2>
+    <form action="/admin/subir-directivo" method="POST">
+      
+      <div class="form-group">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="rut">RUT:</label>
+        <input type="text" id="rut" name="rut" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" name="cargo" required>
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
+      </div>
+
+      <!-- El RUT se usará como nombre de usuario y el rol será profesor por defecto -->
+
+      <button type="submit" class="btn btn-success">Guardar directivo</button>
+    </form>
+  </div>
+
+</body>
+</html>

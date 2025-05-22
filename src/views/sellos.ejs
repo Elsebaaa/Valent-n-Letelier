@@ -1,0 +1,48 @@
+<% var script = 'sellos'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sellos Institucionales</title>
+    <%- include('partials/head') %>
+
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navigation') %>
+
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Sellos Institucionales</h1>
+
+        <div class="card shadow-lg border-success fade-in p-4">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="/img/sellos.png" alt="Sello Medioambiental" class="img-fluid" style="max-height: 200px;">
+                </div>
+                <div class="col-md-8">
+                    <h3 class="text-success">🌱 Sello Medioambiental</h3>
+                    <p class="fs-5">
+                        La Escuela Los Acacios se destaca por su compromiso con el cuidado del entorno natural. Promueve una educación ecológica, fomentando la conciencia ambiental, el respeto por la naturaleza y la participación activa en proyectos sustentables. 
+                        Este sello busca formar estudiantes responsables, conscientes del impacto que generan y capaces de liderar iniciativas que beneficien a su comunidad y al planeta.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<% var script = 'subir-contenido'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subir Contenido</title>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/navigation') %>
+
+  <main class="container my-5">
+    <h2 class="text-center mb-4">📤 Subir nuevo contenido</h2>
+
+    <form action="/profesor/subir-contenido" method="POST" enctype="multipart/form-data" class="bg-white shadow p-4 rounded">
+
+      <div class="mb-3">
+        <label for="curso_id" class="form-label">Curso:</label>
+        <select name="curso_id" id="curso_id" class="form-control" required>
+          <% cursos.forEach(curso => { %>
+            <option value="<%= curso.id %>"><%= curso.nombre %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="titulo" class="form-label">Título:</label>
+        <input type="text" name="titulo" id="titulo" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción:</label>
+        <textarea name="descripcion" id="descripcion" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="archivo" class="form-label">Archivo (PDF, Word, Excel, PPT, TXT):</label>
+        <input type="file" name="archivo" id="archivo" class="form-control" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt" required>
+      </div>
+
+      <button type="submit" class="btn btn-success">Subir contenido</button>
+      <a href="/contenido" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
+  </main>
+
+</body>
+</html>

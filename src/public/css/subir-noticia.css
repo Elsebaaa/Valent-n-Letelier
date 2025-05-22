@@ -1,0 +1,38 @@
+body {
+  background-color: #f5f8fa;
+}
+
+.card {
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: #ffffff;
+}
+
+.card h2 {
+  font-weight: 600;
+}
+
+.btn-primary {
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #333;
+}
+
+textarea,
+input[type="text"],
+input[type="url"],
+input[type="file"] {
+  border-radius: 8px;
+}

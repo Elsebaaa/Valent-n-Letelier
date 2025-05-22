@@ -1,0 +1,52 @@
+<% var script = 'nosotros'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros - Escuela Valentín Letelier</title>
+  <%- include('partials/head') %>
+</head>
+<body class="nosotros-body">
+
+  <%- include('partials/navigation') %>
+
+  <main class="container my-5">
+    <div class="quienes-somos-box shadow-sm p-5 bg-white rounded position-relative">
+
+      <!-- Logo institucional -->
+      <div class="logo-cuadro-esquina">
+        <img src="img/logo-valentin-letelier.png" alt="Logo Escuela">
+      </div>
+
+      <div class="text-center mb-4">
+        <h2 class="titulo-quienes">¿Quiénes somos?</h2>
+        <hr class="w-25 mx-auto" style="border-color: #C00000;">
+      </div>
+
+      <!-- Biografía -->
+      <div class="texto-biografia">
+        <% if (biografia && biografia.trim()) { %>
+          <p><%= biografia %></p>
+        <% } else { %>
+          <p class="text-muted">Aún no se ha escrito una biografía oficial.</p>
+        <% } %>
+      </div>
+
+      <!-- Área de edición solo para administrador -->
+      <% if (sesion && sesion.rol === 'admin') { %>
+        <div class="admin-edicion mt-5 pt-4 border-top">
+          <h4 class="mb-3">🛠 Edición de Biografía (Administrador)</h4>
+          <form method="POST" action="/admin/guardar-biografia">
+            <textarea name="biografia" class="form-control mb-3" rows="6"><%= biografia %></textarea>
+            <button type="submit" class="btn btn-success">Guardar cambios</button>
+          </form>
+        </div>
+      <% } %>
+
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

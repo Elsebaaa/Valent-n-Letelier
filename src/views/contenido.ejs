@@ -1,0 +1,102 @@
+<% var script = 'contenido'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contenido por Curso</title>
+  <link rel="stylesheet" href="/css/contenido.css">
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/navigation') %>
+
+  <main class="container my-5">
+    <h1 class="text-center mb-5">📘 Contenidos Educativos por Curso</h1>
+
+    <% cursos.forEach(curso => { 
+         const cursoID = curso.nombre.replace(/[^a-zA-Z0-9]/g, '');
+         const contenidosCurso = contenidos.filter(c => c.curso_id === curso.id);
+    %>
+      <section class="mb-5">
+        <h3 class="text-primary d-flex justify-content-between align-items-center">
+          <span><%= curso.nombre %></span>
+          <% if (usuario && (usuario.rol === 'admin' || usuario.rol === 'profesor')) { %>
+            <button class="btn btn-sm btn-outline-success btn-toggle-upload" data-id="<%= cursoID %>">📤 Subir nuevo</button>
+          <% } %>
+        </h3>
+
+        <% if (contenidosCurso.length === 0) { %>
+          <p class="text-muted">No hay contenidos disponibles para este curso.</p>
+        <% } else { %>
+          <ul class="list-group mb-3">
+            <% contenidosCurso.forEach(c => { %>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <div>
+                  <strong><%= c.titulo %></strong><br>
+                  <small class="text-muted"><%= c.descripcion %></small>
+                  <div class="text-muted small">Ruta: <%= c.archivo %></div> <!-- Para depuración -->
+                </div>
+                <div class="d-flex gap-2 mt-2 mt-md-0">
+                  <% if (c.archivo) { %>
+                    <a href="<%= c.archivo %>" 
+                       class="btn btn-sm btn-outline-primary" 
+                       download 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                      📥 Descargar
+                    </a>
+                  <% } else { %>
+                    <span class="text-danger small">❌ Archivo no disponible</span>
+                  <% } %>
+
+                   <% if (usuario && (usuario.rol === 'admin' || usuario.rol === 'profesor')) { %>
+                    <a href="/profesor/editar-contenido/<%= c.id %>" class="btn btn-sm btn-warning">✏️ Editar</a>
+                    <form action="/profesor/eliminar-contenido/<%= c.id %>" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar este contenido?');">
+                      <button type="submit" class="btn btn-sm btn-danger">🗑</button>
+                    </form>
+                  <% } %>
+                </div>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+
+        <% if (usuario && (usuario.rol === 'admin' || usuario.rol === 'profesor')) { %>
+          <form id="formulario-<%= cursoID %>" class="d-none mb-4 p-3 border rounded bg-light"
+                action="/profesor/subir-contenido" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="curso_id" value="<%= curso.id %>">
+            <div class="mb-2">
+              <label class="form-label">Título:</label>
+              <input type="text" name="titulo" class="form-control" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Descripción:</label>
+              <textarea name="descripcion" rows="2" class="form-control"></textarea>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Archivo:</label>
+              <input type="file" name="archivo" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Subir</button>
+          </form>
+        <% } %>
+      </section>
+    <% }) %>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    document.querySelectorAll('.btn-toggle-upload').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        const formulario = document.getElementById('formulario-' + id);
+        if (formulario) {
+          formulario.classList.toggle('d-none');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

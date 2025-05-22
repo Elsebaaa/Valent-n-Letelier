@@ -1,0 +1,68 @@
+<% var script = 'inicio'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escuela Básica Valentín Letelier</title>
+  <%- include('partials/head') %>
+</head>
+<body>
+
+  <%- include('partials/navigation') %>
+
+  <!-- Hero con fondo institucional -->
+  <section class="hero-inicio d-flex align-items-center">
+    <div class="container text-white text-center">
+      <h1 class="display-4 fw-bold">Escuela Básica Valentín Letelier</h1>
+      <p class="lead">Comprometidos con una educación pública de calidad, inclusiva y participativa.</p>
+      <a href="/nosotros" class="btn btn-outline-light mt-3">Conócenos</a>
+    </div>
+  </section>
+
+  <!-- Noticias destacadas -->
+  <section class="zona-noticias py-5">
+    <div class="container">
+      <h2 class="text-center text-primary fw-bold mb-5">📰 Últimas Noticias</h2>
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="card shadow h-100 border-0">
+            <img src="/img/noticia1.jpg" class="card-img-top" alt="Noticia 1">
+            <div class="card-body">
+              <h6 class="text-muted">📅 3 diciembre, 2024</h6>
+              <h5 class="card-title">Municipalidad de Santiago sumó 60 asistentes de directivos en actividad</h5>
+              <a href="#" class="btn btn-primary w-100 mt-3">Leer más</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow h-100 border-0">
+            <img src="/img/noticia2.jpg" class="card-img-top" alt="Noticia 2">
+            <div class="card-body">
+              <h6 class="text-muted">📅 27 noviembre, 2024</h6>
+              <h5 class="card-title">Valenzuela se reúne con Liceos de la comuna y entrega recomendaciones</h5>
+              <a href="#" class="btn btn-primary w-100 mt-3">Leer más</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow h-100 border-0">
+            <img src="/img/noticia3.jpg" class="card-img-top" alt="Noticia 3">
+            <div class="card-body">
+              <h6 class="text-muted">📅 14 noviembre, 2024</h6>
+              <h5 class="card-title">Concejo Municipal aprueba el Plan Anual de Educación Municipal PADEM</h5>
+              <a href="#" class="btn btn-primary w-100 mt-3">Leer más</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

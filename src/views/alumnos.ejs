@@ -1,0 +1,69 @@
+<% var script = 'alumnos'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumnos - Escuela</title>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/navigation') %>
+
+  <main class="container my-5">
+    <h1 class="text-center mb-4">📚 Lista de Alumnos por Curso</h1>
+
+    <% const niveles = ['1° Básico','2° Básico','3° Básico','4° Básico','5° Básico','6° Básico','7° Básico','8° Básico']; %>
+
+    <% niveles.forEach(nivel => { 
+         const alumnosCurso = alumnos.filter(al => al.curso_nombre === nivel);
+    %>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-1"><%= nivel %></h3>
+
+        <% if (alumnosCurso.length > 0) { %>
+          <div class="row g-3">
+            <% alumnosCurso.forEach(al => { %>
+              <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body d-flex align-items-center">
+                    <% if (al.foto) { %>
+                      <img src="<%= al.foto %>" alt="Foto alumno" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                    <% } %>
+                    <div>
+                      <h5 class="card-title mb-1"><strong><%= al.nombre %> <%= al.apellido %></strong></h5>
+                      <p class="mb-0"><strong>Apoderado:</strong> <%= al.telefono_apoderado %></p>
+                      <% if (al.correo_institucional) { %>
+                        <p class="mb-0"><strong>Correo:</strong> <%= al.correo_institucional %></p>
+                      <% } %>
+                    </div>
+                  </div>
+
+                  <% if (usuario && (usuario.rol === 'admin' || usuario.rol === 'profesor')) { %>
+                    <div class="card-footer d-flex justify-content-end gap-2">
+                      <a href="/admin/editar-alumno/<%= al.id %>" class="btn btn-warning btn-sm">Editar</a>
+                      <form action="/admin/eliminar-alumno/<%= al.id %>" method="POST" onsubmit="return confirm('¿Eliminar alumno?');">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                      </form>
+                    </div>
+                  <% } %>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        <% } else { %>
+          <p class="text-muted">No hay alumnos registrados en este curso.</p>
+        <% } %>
+      </section>
+    <% }) %>
+
+    <% if (usuario && (usuario.rol === 'admin' || usuario.rol === 'profesor')) { %>
+      <div class="text-center mt-4">
+        <a href="/admin/subir-alumno" class="btn btn-success">+ Agregar alumno</a>
+      </div>
+    <% } %>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

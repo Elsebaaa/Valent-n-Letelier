@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Noticia</title>
+  <link rel="stylesheet" href="/css/noticias.css">
+  <link rel="stylesheet" href="/css/navbar-footer.css">
+  <%- include('partials/head') %>
+</head>
+<body>
+
+  <!-- Header y Navegación -->
+  <header class="top-header"></header>
+
+  <!-- Formulario para editar noticia -->
+  <section class="formulario-directivo">
+    <h2>Editar Noticia</h2>
+
+    <form action="/admin/editar-noticia/<%= noticia.id %>" method="POST" enctype="multipart/form-data">
+      
+      <!-- Fecha -->
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" value="<%= noticia.fecha.toISOString().substring(0, 10) %>" required>
+      </div>
+
+      <!-- Título -->
+      <div class="form-group">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" value="<%= noticia.titulo %>" required>
+      </div>
+
+      <!-- Descripción -->
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="4" required><%= noticia.descripcion %></textarea>
+      </div>
+
+      <!-- Link -->
+      <div class="form-group">
+        <label for="link">Enlace (opcional)</label>
+        <input type="text" id="link" name="link" value="<%= noticia.link %>">
+      </div>
+
+      <!-- Imagen actual -->
+      <div class="form-group">
+        <label>Imagen actual:</label><br>
+        <img src="<%= noticia.imagen %>" alt="Imagen noticia actual" style="max-width: 100%; border-radius: 10px; margin-top: 10px;">
+      </div>
+
+      <!-- Subir nueva imagen -->
+      <div class="form-group">
+        <label for="imagen">Cambiar imagen (opcional)</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*">
+      </div>
+
+      <!-- Botón -->
+      <button type="submit">Guardar cambios</button>
+    </form>
+  </section>
+
+</body>
+</html>

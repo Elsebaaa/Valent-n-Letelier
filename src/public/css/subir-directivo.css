@@ -1,0 +1,59 @@
+/*Subir directivos */
+.formulario-directivo {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .formulario-directivo h2 {
+    text-align: center;
+    color: #002B5B;
+    margin-bottom: 25px;
+  }
+  
+  .formulario-directivo .form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formulario-directivo label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  .formulario-directivo input,
+  .formulario-directivo select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .formulario-directivo input:focus,
+  .formulario-directivo select:focus {
+    outline: none;
+    border-color: #002B5B;
+  }
+  
+  .formulario-directivo button {
+    background-color: #002B5B;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .formulario-directivo button:hover {
+    background-color: #C00000;
+  }

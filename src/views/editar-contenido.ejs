@@ -1,0 +1,54 @@
+<% var script = 'editar-contenido'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Contenido</title>
+  <link rel="stylesheet" href="/css/contenido.css">
+  <%- include('partials/head') %>
+</head>
+<body>
+
+  <main class="container my-5">
+    <h2 class="text-center mb-4">✏️ Editar Contenido</h2>
+
+    <form action="/profesor/editar-contenido/<%= contenido.id %>" method="POST" enctype="multipart/form-data" class="bg-white shadow p-4 rounded">
+
+      <div class="mb-3">
+        <label for="curso_id" class="form-label">Curso:</label>
+        <select name="curso_id" id="curso_id" class="form-control" required>
+          <% cursos.forEach(curso => { %>
+            <option value="<%= curso.id %>" <%= curso.id === contenido.curso_id ? 'selected' : '' %>><%= curso.nombre %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="titulo" class="form-label">Título:</label>
+        <input type="text" name="titulo" id="titulo" class="form-control" value="<%= contenido.titulo %>" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción:</label>
+        <textarea name="descripcion" id="descripcion" rows="3" class="form-control"><%= contenido.descripcion %></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Archivo actual:</label><br>
+        <a href="<%= contenido.archivo %>" target="_blank" class="btn btn-outline-primary btn-sm">📄 Ver archivo actual</a>
+      </div>
+
+      <div class="mb-3">
+        <label for="archivo" class="form-label">Reemplazar archivo (opcional):</label>
+        <input type="file" name="archivo" id="archivo" class="form-control" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt">
+        <small class="text-muted">Si no se selecciona nuevo archivo, se mantendrá el actual.</small>
+      </div>
+
+      <button type="submit" class="btn btn-success">Guardar cambios</button>
+      <a href="/contenido" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
+  </main>
+
+</body>
+</html>

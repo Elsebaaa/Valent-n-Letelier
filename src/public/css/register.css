@@ -1,0 +1,20 @@
+/*Register*/
+body {
+    background-color: #f1f1f1;
+  }
+  .register-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  .btn-registro {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+  }
+  .btn-registro:hover {
+    background-color: #218838;
+  }

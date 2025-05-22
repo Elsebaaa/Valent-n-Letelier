@@ -1,0 +1,73 @@
+/* === FORMULARIO DE EDICIÓN DE NOTICIA === */
+.formulario-directivo {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formulario-directivo h2 {
+    text-align: center;
+    color: #002B5B;
+    margin-bottom: 25px;
+    font-size: 26px;
+  }
+  
+  .formulario-directivo .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formulario-directivo label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  .formulario-directivo input[type="text"],
+  .formulario-directivo input[type="date"],
+  .formulario-directivo input[type="file"],
+  .formulario-directivo textarea {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .formulario-directivo textarea {
+    resize: vertical;
+  }
+  
+  .formulario-directivo input:focus,
+  .formulario-directivo textarea:focus {
+    border-color: #002B5B;
+    outline: none;
+  }
+  
+  .formulario-directivo button {
+    background-color: #002B5B;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .formulario-directivo button:hover {
+    background-color: #C00000;
+  }
+  
+  .formulario-directivo img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  

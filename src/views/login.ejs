@@ -1,0 +1,45 @@
+<% var script = 'login'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar sesión</title>
+  <%- include('partials/head') %>
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <h2>Iniciar sesión</h2>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div class="alert-error"><%= error %></div>
+    <% } %>
+
+    <form method="POST" action="/login">
+      <label for="usuario">Usuario</label>
+      <input type="text" id="usuario" name="usuario" placeholder="Tu usuario" required>
+
+      <label for="contrasena">Contraseña</label>
+      <div style="position: relative;">
+        <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" required>
+        <button type="button" id="togglePassword" class="btn-ver" title="Ver contraseña">👁️</button>
+      </div>
+
+      <button type="submit" class="btn-login">Ingresar</button>
+    </form>
+  </div>
+
+  <!-- JS para ver/ocultar contraseña -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('togglePassword');
+      const input = document.getElementById('contrasena');
+
+      btn.addEventListener('click', () => {
+        const tipo = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', tipo);
+        btn.textContent = tipo === 'text' ? '🙈' : '👁️';
+      });
+    });
+  </script>
+</body>
+</html>

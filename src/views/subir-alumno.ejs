@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Alumno</title>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <main class="container my-5">
+    <h2 class="text-center mb-4">📥 Agregar Alumno</h2>
+
+    <form action="/admin/subir-alumno" method="POST" class="bg-white shadow p-4 rounded">
+      <div class="mb-3">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label>Apellido:</label>
+        <input type="text" name="apellido" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label>RUT:</label>
+        <input type="text" name="rut" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label>Curso:</label>
+        <select name="curso_id" class="form-control" required>
+          <% cursos.forEach(curso => { %>
+            <option value="<%= curso.id %>"><%= curso.nombre %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label>Teléfono Apoderado:</label>
+        <input type="text" name="telefono_apoderado" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label>Contraseña:</label>
+        <input type="password" name="contrasena" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-success">Registrar Alumno</button>
+    </form>
+  </main>
+</body>
+</html>

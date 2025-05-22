@@ -1,0 +1,40 @@
+<% var script = 'contacto'; %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - Escuela Valentín Letelier</title>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/navigation') %>
+
+  <div class="card-contacto">
+    <!-- Sección QR -->
+    <div class="qr-section">
+      <a href="tel:953298080">
+        <img src="/img/qr-code.png" alt="QR Teléfono" />
+      </a>
+    </div>
+
+    <!-- Información -->
+    <div class="info-section">
+      <h3>Información Institucional</h3>
+      <p><strong>RBD:</strong> 737</p>
+      <p><strong>Directora:</strong> Celia Andrea Castillo Torres</p>
+      <p><strong>Dependencia:</strong> Público</p>
+      <p><strong>Niveles:</strong> Pre-Kínder - 8° Básico</p>
+      <p><strong>Orientación Religiosa:</strong> Laica</p>
+
+      <h3 style="margin-top:30px;">Ubicación y Contacto</h3>
+      <p><i class="fas fa-map-marker-alt"></i>Camino Público S/N Villaseca S/N</p>
+      <p><strong>Región:</strong> De Coquimbo</p>
+      <p><strong>Comuna:</strong> Ovalle</p>
+      <p><i class="fas fa-phone"></i> <a href="tel:953298080" style="color:#C00000; text-decoration:none;">953298080</a></p>
+      <p><i class="fas fa-globe"></i> Sin información</p>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

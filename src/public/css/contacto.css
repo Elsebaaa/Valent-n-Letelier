@@ -1,0 +1,72 @@
+
+/*Contacto*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 40px;
+  }
+  
+  .card-contacto {
+    display: flex;
+    background: white;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .card-contacto:hover {
+    transform: translateY(-5px);
+  }
+  
+  .qr-section {
+    background-color: #f0f0f0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .qr-section img {
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+  }
+  
+  .info-section {
+    flex: 1;
+    padding: 30px;
+  }
+  
+  .info-section h3 {
+    color: #002B5B;
+    margin-bottom: 15px;
+  }
+  
+  .info-section p {
+    margin: 10px 0;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .info-section p i {
+    color: #C00000;
+    margin-right: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .card-contacto {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .qr-section {
+      padding: 20px;
+    }
+  
+    .info-section {
+      padding: 20px;
+    }
+  }
